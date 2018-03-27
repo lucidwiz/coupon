@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 import static com.kakaoproject.coupon.utility.commonUtil.generateCouponRandomizedString;
 
 @RestController
-@Component
 public class CouponIssueController {
 
-    CouponIssueService couponIssueService = new CouponIssueService();
+    @Autowired
+    CouponIssueService couponIssueService;
 
     @RequestMapping("/issue")
     public void issueCouponController(@RequestParam(value = "email") String email) {
