@@ -1,8 +1,11 @@
 package com.kakaoproject.coupon.utility;
 
+import sun.jvm.hotspot.debugger.AddressException;
+
+import javax.mail.internet.InternetAddress;
 import java.util.Random;
 
-public class commonUtil {
+public class CommonUtil {
 
     private static final Random RND = new Random(System.currentTimeMillis());
     private static final String CHAR_SET = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -10,6 +13,7 @@ public class commonUtil {
     private static final int TOTAL_LENGTH = 16;
     private static final String SEPARATOR = "-";
 
+    // Generate randomized coupon string
     public static String generateCouponRandomizedString() {
         StringBuilder resultSB = new StringBuilder();
         char[] charSet = CHAR_SET.toCharArray();
@@ -23,5 +27,17 @@ public class commonUtil {
         }
 
         return resultSB.toString();
+    }
+
+    // Validate email string using javax.mail package
+    public static boolean isValidEmailAddress(String email) throws javax.mail.internet.AddressException {
+        boolean result = true;
+        try {
+            InternetAddress emailAddr = new InternetAddress(email);
+            emailAddr.validate();
+        } catch (AddressException ex) {
+            result = false;
+        }
+        return result;
     }
 }

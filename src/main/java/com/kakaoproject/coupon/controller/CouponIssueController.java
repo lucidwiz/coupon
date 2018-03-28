@@ -1,14 +1,15 @@
 package com.kakaoproject.coupon.controller;
 
-import com.kakaoproject.coupon.domain.CouponIssueRepository;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.kakaoproject.coupon.service.CouponIssueService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import static com.kakaoproject.coupon.utility.commonUtil.generateCouponRandomizedString;
+import javax.mail.internet.AddressException;
+
+import static com.kakaoproject.coupon.utility.CommonUtil.generateCouponRandomizedString;
 
 @RestController
 public class CouponIssueController {
@@ -16,17 +17,18 @@ public class CouponIssueController {
     @Autowired
     CouponIssueService couponIssueService;
 
+    // Coupon issue controller
     @RequestMapping("/issue")
-    public void issueCouponController(@RequestParam(value = "email") String email) {
+    public String issueCouponController(@RequestParam(value = "email") String email) throws AddressException {
         couponIssueService.issueCoupon(email);
+
+        return "OK";
     }
 
+    // Getting issued coupon list controller
+    // return : JSON String
     @RequestMapping("/getlist")
-    public String getIssuedCouponListController() {
+    public String getIssuedCouponListController() throws JsonProcessingException {
         return couponIssueService.getIssuedCouponList();
-    }
-
-    private String generateCoupon() {
-        return generateCouponRandomizedString();
     }
 }

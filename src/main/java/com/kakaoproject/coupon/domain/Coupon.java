@@ -1,18 +1,24 @@
 package com.kakaoproject.coupon.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
+@Table(name = "ISSUED_COUPON_LIST")
 public class Coupon {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @NotNull
+    @Column(unique = true)
     private String email;
+
+    @NotNull
     private String coupon;
+
+    @NotNull
     private Date issued_time;
 
     public Coupon() {
@@ -23,6 +29,7 @@ public class Coupon {
         super();
         this.email = email;
         this.coupon = coupon;
+        this.issued_time = new Date();
     }
 
     public long getId() {
@@ -49,8 +56,8 @@ public class Coupon {
         this.coupon = coupon;
     }
 
-    public Date getIssued_time() {
-        return issued_time;
+    public String getIssued_time() {
+        return issued_time.toString();
     }
 
     public void setIssued_time(Date issued_time) {
