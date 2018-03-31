@@ -1,13 +1,67 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>For kakaopay interview</title>
+    <title>Application for KakaoPay interview</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/app/app.css" rel="stylesheet" media="screen">
     <link href="css/lib/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/lib/jquery.dataTables.min.css" rel="stylesheet" media="screen">
 </head>
 <body>
-<h1>Hello, world!</h1>
-    <script src="http://code.jquery.com/jquery.js"></script>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">KakaoPay Coupon</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li id="a-issue-nav" class="nav-item active">
+                    <a class="nav-link" href="#">Issue <span class="sr-only">(current)</span></a>
+                </li>
+                <li id="a-list-nav" class="nav-item">
+                    <a class="nav-link" href="#">List</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <main role="main" id="kp-main-container" class="container">
+        <div id="nav-page-1">
+            <h2>Enter your email address for coupon issue.</h2>
+            <form class="card p-2">
+                <div class="input-group">
+                    <input id="txt-email-addr" type="text" class="form-control" placeholder="Email address">
+                    <div class="input-group-append">
+                        <button id="btn-coupon-issue" type="submit" class="btn btn-secondary">Issue</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="nav-page-2" style="display: none">
+            <h2>Issued coupon list</h2>
+            <div class="table-responsive">
+                <table id="table-coupon-list" class="display" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Coupon</th>
+                        <th>Issued Time</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Ray Lee. All right reserved.</span>
+        </div>
+    </footer>
+    <script src="js/lib/jquery.js"></script>
+    <script src="js/lib/jquery.dataTables.min.js"></script>
     <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/app/app.js"></script>
 </body>
 </html>
