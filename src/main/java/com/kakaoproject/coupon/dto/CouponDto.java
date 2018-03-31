@@ -1,20 +1,22 @@
-package com.kakaoproject.coupon.domain;
+package com.kakaoproject.coupon.dto;
+
+import com.kakaoproject.coupon.entity.Coupon;
 
 import java.util.List;
 
-public class CouponJsonObject {
+public class CouponDto {
 
     // Total count of elements
-    private int count;
+    private long count;
 
     // ArrayList of issued coupons
     private List<Coupon> couponList;
 
-    public int getCount() {
+    public long getCount() {
         return count;
     }
 
-    public void setCount(int count) {
+    public void setCount(long count) {
         this.count = count;
     }
 

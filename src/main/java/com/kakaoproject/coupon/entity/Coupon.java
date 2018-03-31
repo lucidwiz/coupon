@@ -1,11 +1,10 @@
-package com.kakaoproject.coupon.domain;
+package com.kakaoproject.coupon.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity
-@Table(name = "ISSUED_COUPON_LIST")
 public class Coupon {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
