@@ -27,18 +27,18 @@ public class ExceptionHandler extends ResponseEntityExceptionHandler {
     public final ResponseEntity<ErrorDetailDto> handleDuplicatedEmailFoundException(DuplicatedEmailException ex, WebRequest request) {
         ErrorDetailDto errorDetails = new ErrorDetailDto(new Date(), DUPLICATED_EMAIL_EXCEPTION_MESSAGE,
                 request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
     }
 
     @org.springframework.web.bind.annotation.ExceptionHandler(InvalidEmailException.class)
-    public final ResponseEntity<ErrorDetailDto> handleDuplicatedEmailFoundException(InvalidEmailException ex, WebRequest request) {
+    public final ResponseEntity<ErrorDetailDto> handleInvalidEmailExceptionException(InvalidEmailException ex, WebRequest request) {
         ErrorDetailDto errorDetails = new ErrorDetailDto(new Date(), INVALID_EMAIL_ADDRESS_EXCEPTION_MESSAGE,
                 request.getDescription(false));
-        return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);
+        return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
     }
 
     @org.springframework.web.bind.annotation.ExceptionHandler(JsonException.class)
-    public final ResponseEntity<ErrorDetailDto> handleDuplicatedEmailFoundException(JsonException ex, WebRequest request) {
+    public final ResponseEntity<ErrorDetailDto> handleJsonExceptionException(JsonException ex, WebRequest request) {
         ErrorDetailDto errorDetails = new ErrorDetailDto(new Date(), JSON_HANDLING_EXCEPTION_MESSAGE,
                 request.getDescription(false));
         return new ResponseEntity<>(errorDetails, HttpStatus.INTERNAL_SERVER_ERROR);

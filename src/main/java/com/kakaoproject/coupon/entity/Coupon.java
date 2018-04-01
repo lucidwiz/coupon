@@ -18,7 +18,7 @@ public class Coupon {
     private String coupon;
 
     @NotNull
-    private Date issued_time;
+    private String issued_time;
 
     public Coupon() {
         super();
@@ -28,7 +28,7 @@ public class Coupon {
         super();
         this.email = email;
         this.coupon = coupon;
-        this.issued_time = new Date();
+        this.issued_time = new Date().toString();
     }
 
     public long getId() {
@@ -56,10 +56,10 @@ public class Coupon {
     }
 
     public String getIssued_time() {
-        return issued_time.toString();
+        return issued_time;
     }
 
-    public void setIssued_time(Date issued_time) {
+    public void setIssued_time(String issued_time) {
         this.issued_time = issued_time;
     }
 }

@@ -3,6 +3,7 @@ package com.kakaoproject.coupon.service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kakaoproject.coupon.entity.Coupon;
+import com.kakaoproject.coupon.exception.DuplicatedEmailException;
 import com.kakaoproject.coupon.exception.InvalidEmailException;
 import com.kakaoproject.coupon.exception.JsonException;
 import com.kakaoproject.coupon.repository.CouponIssueRepository;
@@ -35,8 +36,10 @@ public class CouponIssueService {
                 // Insert coupon information to database
                 couponIssueRepository.save(new Coupon(email, generateCoupon()));
             } catch (org.hibernate.exception.ConstraintViolationException ex) {
-                throw new InvalidEmailException(email);
+                throw new DuplicatedEmailException(email);
             }
+        } else {
+            throw new InvalidEmailException(email);
         }
     }
 
