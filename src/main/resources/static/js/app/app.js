@@ -7,12 +7,12 @@ $(document).ready(function() {
             type: 'POST',
             url: "/api/v1/issue/" + emailAddr,
             dataType: "text",
-            success: function(resultData) {
+            success: function() {
                 $('#txt-email-addr').val('');
                 alert('Save Complete');
             },
-            error: function() {
-                alert('Failed!!');
+            error: function(xhr) {
+                alert(xhr.responseText.message);
             }
         });
     };

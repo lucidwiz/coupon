@@ -16,12 +16,17 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.mail.internet.AddressException;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import static com.kakaoproject.coupon.utility.CommonUtil.generateCouponRandomizedString;
 import static com.kakaoproject.coupon.utility.CommonUtil.isValidEmailAddress;
 
 @SuppressWarnings("deprecation")
 @Service
 public class CouponIssueService {
+
+    private static final Logger LOGGER = Logger.getLogger( CouponIssueService.class.getName() );
 
     @Autowired
     CouponIssueRepository couponIssueRepository;
@@ -36,6 +41,7 @@ public class CouponIssueService {
                 // Insert coupon information to database
                 couponIssueRepository.save(new Coupon(email, generateCoupon()));
             } catch (org.hibernate.exception.ConstraintViolationException ex) {
+                LOGGER.log(Level.WARNING, ex.toString(), ex);
                 throw new DuplicatedEmailException(email);
             }
         } else {
@@ -62,6 +68,7 @@ public class CouponIssueService {
             // Jackson JSON write to object
             jsonObject = mapper.writeValueAsString(couponDto);
         } catch (JsonProcessingException ex) {
+            LOGGER.log(Level.WARNING, ex.toString(), ex);
             throw new JsonException(ex.getMessage());
         }
 
