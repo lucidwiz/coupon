@@ -20,6 +20,7 @@
 * REST API 를 통한 쿠폰 발급 및 조회
 * **JPA**를 이용한 데이터 제어 (In-memory DB)
 * Thymeleaf + Bootstrap 을 이용한 Front-end 구현
+* IDE는 IntelliJ 사용
 
 ## 프로젝트 빌드 및 실행 방법
 * [다운로드](https://github.com/lucidwiz/coupon/archive/master.zip) 및 압축해제 하거나 Git clone 받음 [Git](https://spring.io/understanding/Git): `git clone  [https://github.com/lucidwiz/coupon.git]`
