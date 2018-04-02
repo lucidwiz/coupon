@@ -1,4 +1,4 @@
-# 쿠폰 발급 웹 애플리케이션
+# 쿠폰 발급 웹 애플리케이션 for 카카오페이
 
 본 웹 애플리케이션은 특정 목적에 의해 만들어진 프로젝트 입니다.
 
@@ -25,17 +25,22 @@
 * [다운로드](https://github.com/lucidwiz/coupon/archive/master.zip) 및 압축해제 하거나 Git clone 받음 [Git](https://spring.io/understanding/Git): `git clone  [https://github.com/lucidwiz/coupon.git]`
 
 * Project 폴더에서 Maven 빌드 수행
-> **MAC** :  ./mvnw clean install
-> **Windows** : mvnw clean install
-
+```
+- Mac :  ./mvnw clean install
+- Windows : mvnw clean install
+```
 * target 폴더 진입 후 다음과 같이 실행
-> java -jar coupon-0.0.1-SNAPSHOT.jar
+``` java -jar coupon-0.0.1-SNAPSHOT.jar ```
 
 * 웹 브라우저에서 다음 주소로 접속하여 실행
-> http://localhost:8080 
+``` http://localhost:8080 ```
+
+## Screen Shots
+![Main Issue Screen](https://github.com/lucidwiz/coupon/blob/master/1.png)
+![List Screen](https://github.com/lucidwiz/coupon/blob/master/2.png)
 
 
-
+----------
 
 
 # 감사합니다!!
