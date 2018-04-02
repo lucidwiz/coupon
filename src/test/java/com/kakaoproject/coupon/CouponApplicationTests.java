@@ -64,7 +64,7 @@ public class CouponApplicationTests {
                 createURLWithPort(ISSUE_PATH + "com"),
                 HttpMethod.POST, entity, String.class);
 
-        assertTrue(response.getStatusCode().equals(HttpStatus.INTERNAL_SERVER_ERROR));
+        assertTrue(response.getStatusCode().equals(HttpStatus.BAD_REQUEST));
     }
 
     @Test
