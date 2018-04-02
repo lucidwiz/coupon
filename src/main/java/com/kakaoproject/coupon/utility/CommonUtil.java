@@ -1,9 +1,8 @@
 package com.kakaoproject.coupon.utility;
 
-import sun.jvm.hotspot.debugger.AddressException;
-
 import javax.mail.internet.InternetAddress;
 import java.util.Random;
+import javax.mail.internet.AddressException;
 
 public class CommonUtil {
 
@@ -30,7 +29,7 @@ public class CommonUtil {
     }
 
     // Validate email string using javax.mail package
-    public static boolean isValidEmailAddress(String email) throws javax.mail.internet.AddressException {
+    public static boolean isValidEmailAddress(String email) throws AddressException {
         boolean result = true;
         try {
             InternetAddress emailAddr = new InternetAddress(email);
