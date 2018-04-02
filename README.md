@@ -37,13 +37,13 @@
 
 ## REST API 가이드
 * POST /api/v1/issue/{email}
-  - Request body 필요 없음
+  - Request body 필요 없음
 * GET /api/v1/getlist
-  - Request Parameter 
-    - pagenum : int -> 페이징 처리를 위한 한 페이지 번호
-    - pagesize : int -> 페이징 처리를 위한 한 페이지 최대 아이템 개수
-  - Return Sample
-  '''
+   - Request Parameter 
+     - pagenum : int -> 페이징 처리를 위한 한 페이지 번호
+     - pagesize : int -> 페이징 처리를 위한 한 페이지 최대 아이템 개수
+  - Return Sample
+  ```
   {
     "count": 1,
     "couponList": [
@@ -55,8 +55,7 @@
         }
     ]
   }
-  '''
-
+  ```
 
 ## Screen Shots
 ![Main Issue Screen](https://github.com/lucidwiz/coupon/blob/master/1.png)
