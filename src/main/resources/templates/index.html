@@ -16,10 +16,10 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
                 <li id="a-issue-nav" class="nav-item active">
-                    <a class="nav-link" href="#">Issue <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#" th:onclick="'javascript:navIssueClick();'">Issue <span class="sr-only">(current)</span></a>
                 </li>
                 <li id="a-list-nav" class="nav-item">
-                    <a class="nav-link" href="#">List</a>
+                    <a class="nav-link" href="#" th:onclick="'javascript:navListClick();'">List</a>
                 </li>
             </ul>
         </div>
@@ -31,7 +31,8 @@
                 <div class="input-group">
                     <input id="txt-email-addr" type="text" class="form-control" placeholder="Email address">
                     <div class="input-group-append">
-                        <button id="btn-coupon-issue" class="btn btn-secondary">Issue</button>
+                        <input type="button" id="btn-coupon-issue" class="btn btn-secondary"
+                                th:onclick="'javascript:btnIssueClick();'" value="Issue"></input>
                     </div>
                 </div>
             </form>

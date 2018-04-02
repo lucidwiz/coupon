@@ -30,6 +30,4 @@ public class CouponIssueController {
             @RequestParam(value = "pagesize", defaultValue = "1") int pagesize) throws JsonProcessingException {
         return couponIssueService.getIssuedCouponList(pagesize, pagenum);
     }
-
-
 }
