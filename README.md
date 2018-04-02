@@ -35,6 +35,29 @@
 * 웹 브라우저에서 다음 주소로 접속하여 실행
 ``` http://localhost:8080 ```
 
+## REST API 가이드
+* POST /api/v1/issue/{email}
+  - Request body 필요 없음
+* GET /api/v1/getlist
+  - Request Parameter 
+    - pagenum : int -> 페이징 처리를 위한 한 페이지 번호
+    - pagesize : int -> 페이징 처리를 위한 한 페이지 최대 아이템 개수
+  - Return Sample
+  '''
+  {
+    "count": 1,
+    "couponList": [
+        {
+            "id": 1,
+            "email": "jj@ss.com",
+            "coupon": "M8t1-JhTJ-brKW-ZYgJ",
+            "issued_time": "Tue Apr 03 00:35:01 KST 2018"
+        }
+    ]
+  }
+  '''
+
+
 ## Screen Shots
 ![Main Issue Screen](https://github.com/lucidwiz/coupon/blob/master/1.png)
 ![List Screen](https://github.com/lucidwiz/coupon/blob/master/2.png)
